@@ -14,7 +14,7 @@ function createGrid(numCells) {
     for (let b = 0; b < numCells; b++) {
       let cells = document.createElement('div');
       cells.classList.add('cells');
-      cells.style.cssText = "background-color: white; border: 1px solid black; height: 25px; width: 25px";
+      cells.style.cssText = "background-color: white; border: 1px solid grey; height: 25px; width: 25px";
       cells.addEventListener("mouseover", changeCellColor);
       container.appendChild(cells);
     }
