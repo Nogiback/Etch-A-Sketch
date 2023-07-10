@@ -19,7 +19,6 @@ function createGrid(numCells) {
       container.appendChild(cells);
     }
   }
-
 }
 
 function changeCellColor(event) {
