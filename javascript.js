@@ -1,24 +1,29 @@
+let numCells;
 const container = document.querySelector('.container');
 const resetButton = document.querySelector('.clear-btn');
+//const setGridButton = document.querySelector('.grid-size-btn');
 
+//setGridButton.addEventListener("click", getGridSize);
 resetButton.addEventListener("click", resetGrid);
 
-let numCells = 16;
+// function getGridSize() {
+//   let gridSize = parseInt(prompt("Enter a grid size from 1 to 100"));
 
-container.style.cssText = `width: ${numCells*25}px`;
+
+  
+// }
 
 function createGrid(numCells) {
-  const div = document.createElement('div');
-  
+
   for (let a = 0; a < numCells; a++) {
     for (let b = 0; b < numCells; b++) {
-      let cells = document.createElement('div');
+      const cells = document.createElement('div');
       cells.classList.add('cells');
-      cells.style.cssText = "background-color: white; border: 1px solid grey; height: 25px; width: 25px";
       cells.addEventListener("mouseover", changeCellColor);
+      cells.style.cssText = `width: ${(1/numCells)*100}%; height: ${(1/numCells)*100}%`;
       container.appendChild(cells);
     }
-  }
+ }
 }
 
 function changeCellColor(event) {
@@ -31,7 +36,6 @@ function resetGrid() {
     cell.style.backgroundColor = "white";
   });
 }
-
 
 
 createGrid(numCells);

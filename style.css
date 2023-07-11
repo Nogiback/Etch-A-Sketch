@@ -24,9 +24,17 @@ h1 {
   margin: 48px 0px;
   display: flex;
   flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
 }
 
-.clear-btn {
+.container > .cells {
+  flex: 1 0 auto;
+  background-color: white;
+  border: 1px solid grey;
+}
+
+button {
   background-color: #0b61eb;
   color:#F9FAF8;
   font-size: 18px;
@@ -41,6 +49,10 @@ h1 {
   background-color: red;
 }
 
-.clear-btn:active {
+.grid-size-btn:hover {
+  background-color:forestgreen;
+}
+
+button:active {
   transform: translateY(2px);
 }
