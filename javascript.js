@@ -10,13 +10,13 @@ const setGridButton = document.querySelector('.grid-size-btn');
 setGridButton.addEventListener("click", getGridSize);
 resetButton.addEventListener("click", resetGrid);
 
-//Calling createGrid function will default size on page load
+//Calling createGrid function with default size on page load
 createGrid(defaultGrid);
 
 //Prompt user for grid size 1 to 100 and call createGrid function if valid
 function getGridSize() {
   let validInput =  false;
-  container.innerHTML = "";
+  container.textContent = "";
 
   while (validInput === false) {
     let gridSize = parseInt(prompt("Enter a grid size from 1 to 100"));
