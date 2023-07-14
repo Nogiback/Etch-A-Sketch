@@ -1,14 +1,25 @@
-//Setting default grid size to 16 on page load
+//Setting default grid size to 16 and default color setting on page load
 let defaultGrid=16;
+let isRandomColor = false;
 
 //Getting selectors from HTML
 const container = document.querySelector('.container');
 const resetButton = document.querySelector('.clear-btn');
 const setGridButton = document.querySelector('.grid-size-btn');
+const randomizeColorButton = document.querySelector('.random-color-btn');
 
 //Setting event listeners for buttons on page
 setGridButton.addEventListener("click", getGridSize);
 resetButton.addEventListener("click", resetGrid);
+randomizeColorButton.addEventListener("click", () => {
+  if (isRandomColor === false) {
+    randomizeColorButton.textContent = "RANDOM COLORS: ON";
+    return isRandomColor = true;
+  } else {
+    randomizeColorButton.textContent = "RANDOM COLORS: OFF";
+    return isRandomColor = false;
+  }
+});
 
 //Calling createGrid function with default size on page load
 createGrid(defaultGrid);
@@ -48,7 +59,16 @@ function createGrid(numCells) {
 
 //Changing cell color on mouseover input
 function changeCellColor(event) {
-  event.target.style.backgroundColor = "black";
+  if (isRandomColor===false) {
+    event.target.style.backgroundColor = "black";
+  } else {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      };
+    event.target.style.backgroundColor = `${color}`;
+  }
 }
 
 //Resets all cells upon Reset button click
